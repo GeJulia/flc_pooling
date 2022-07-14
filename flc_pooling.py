@@ -1,3 +1,5 @@
+'''FLC Pooling module
+can be used and distributed under the MIT license'''
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
