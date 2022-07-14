@@ -1,3 +1,5 @@
+""" Generic Class for Wide ResNet with FLC Pooling
+Based on code from https://github.com/yaodongyu/TRADES """
 import math
 import torch
 import torch.nn as nn
@@ -66,7 +68,6 @@ class NetworkBlock(nn.Module):
 
 
 class WideResNet(nn.Module):
-    """ Based on code from https://github.com/yaodongyu/TRADES """
     def __init__(self, depth=28, num_classes=10, widen_factor=10, sub_block1=False, dropRate=0.0, bias_last=True):
         super(WideResNet, self).__init__()
         nChannels = [16, 16 * widen_factor, 32 * widen_factor, 64 * widen_factor]

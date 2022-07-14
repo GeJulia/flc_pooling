@@ -1,4 +1,8 @@
-'''Generic Class for PreAct ResNet with FLC Pooling'''
+'''Generic Class for PreAct ResNet with FLC Pooling
+Reference:
+[1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
+    Identity Mappings in Deep Residual Networks. arXiv:1603.05027
+'''
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
