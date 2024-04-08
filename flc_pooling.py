@@ -1,5 +1,11 @@
 '''FLC Pooling module
-can be used and distributed under the MIT license'''
+can be used and distributed under the MIT license
+Reference:
+[1] Grabinski, J., Jung, S., Keuper, J., & Keuper, M. (2022). 
+    "FrequencyLowCut Pooling--Plug & Play against Catastrophic Overfitting." 
+    European Conference on Computer Vision. Cham: Springer Nature Switzerland, 2022.
+'''
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
