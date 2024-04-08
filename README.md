@@ -23,9 +23,9 @@ Then consider citing our [paper](https://link.springer.com/chapter/10.1007/978-3
 }
 
 @article{grabinski2023fix,
-  title={Fix your downsampling ASAP! Be natively more robust via Aliasing and Spectral Artifact free Pooling},
-  author={Grabinski, Julia and Keuper, Janis and Keuper, Margret},
-  journal={arXiv preprint arXiv:2307.09804},
-  year={2023}
+  title    = {Fix your downsampling ASAP! Be natively more robust via Aliasing and Spectral Artifact free Pooling},
+  author   = {Grabinski, Julia and Keuper, Janis and Keuper, Margret},
+  journal  = {arXiv preprint arXiv:2307.09804},
+  year     = {2023}
 }
 ```
