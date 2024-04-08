@@ -2,6 +2,7 @@
 Code for [FrequencyLowCut Pooling - Plug & Play against Catastrophic Overfitting](https://link.springer.com/chapter/10.1007/978-3-031-19781-9_3) and [Fix your downsampling ASAP! Be natively more robust via Aliasing and Spectral Artifact free Pooling](https://arxiv.org/abs/2307.09804)
 
 We provide our FrequencyLowCut (FLC) module and our Aliasing and Sinc Artifact free Pooling (ASAP) as well as examples how to implement them into common CNN structures.
+
 The code for adversarial training used in our paper can be found [here](https://github.com/locuslab/fast_adversarial).
 
 
@@ -9,7 +10,7 @@ The code for adversarial training used in our paper can be found [here](https://
 
 Would you like to reference our **`FLC Pooling`** and **`ASAP`**? 
 
-Then consider citing our [whitepaper](https://link.springer.com/chapter/10.1007/978-3-031-19781-9_3) and [whitepaper](https://arxiv.org/abs/2307.09804):
+Then consider citing our [paper](https://link.springer.com/chapter/10.1007/978-3-031-19781-9_3) and [paper](https://arxiv.org/abs/2307.09804):
 
 
 ```bibtex
