@@ -18,6 +18,6 @@ class FLC_Pooling(nn.Module):
 
     def forward(self, x):
 
-        low_part = torch.fft.fftshift(torch.fft.fft2(x, norm='forward'))[:,:,int(x.size()[2]/4):int(x.size()[2]/4*3),int(x.size()[3]/4):int(x.size()[3]/4*3)]
+        low_part = torch.fft.fftshift(torch.fft.fft2(x, norm='forward'))[:,:,int(x.size(2)/4):int(x.size(2)/4*3),int(x.size(3)/4):int(x.size(3)/4*3)]
         
         return torch.fft.ifft2(torch.fft.ifftshift(low_part), norm='forward').real

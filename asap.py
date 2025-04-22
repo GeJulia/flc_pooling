@@ -26,19 +26,21 @@ class ASAP(nn.Module):
         super(ASAP, self).__init__()
 
     def forward(self, x):
-        
+
+        if self.transpose:
+            x = x.transpose(2,3)
         if self.window2d is None:
             window1d = np.abs(np.hamming(x.size(2)))
-            window2d = np.sqrt(np.outer(window1d,window1d))
+            window2nd = np.abs(np.hamming(x.size(3)))
+            window2d = np.sqrt(np.outer(window1d,window2nd))
             self.window2d = torch.Tensor(window2d).cuda()
             del window1d
             del window2d
-            
-        if self.transpose:
-            x = x.transpose(2,3)
+            del window2nd
+        
         low_part = torch.fft.fftshift(torch.fft.fft2(x, norm='forward'))
         low_part = low_part*self.window2d.unsqueeze(0).unsqueeze(0)
-        low_part = low_part[:,:,int(x.size()[2]/4):int(x.size()[2]/4*3),int(x.size()[3]/4):int(x.size()[3]/4*3)]
+        low_part = low_part[:,:,int(x.size(2)/4):int(x.size(2)/4*3),int(x.size(3)/4):int(x.size(3)/4*3)]
         
         return torch.fft.ifft2(torch.fft.ifftshift(low_part), norm='forward').real
 
@@ -56,14 +58,16 @@ class ASAP_padding_one(nn.Module):
         x = F.pad(x, (0, 1, 0, 1), "constant", 0)
         if not torch.is_tensor(self.window2d):
             window1d = np.abs(np.hamming(x.size(2)))
-            window2d = np.sqrt(np.outer(window1d,window1d))
+            window2nd = np.abs(np.hamming(x.size(3)))
+            window2d = np.sqrt(np.outer(window1d,window2nd))
             self.window2d = torch.Tensor(window2d).cuda()
             del window1d
             del window2d
+            del window2nd
             
         low_part = torch.fft.fftshift(torch.fft.fft2(x, norm='forward'))
         low_part = low_part*self.window2d.unsqueeze(0).unsqueeze(0)
-        low_part = low_part[:,:,int(x.size()[2]/4):int(x.size()[2]/4*3),int(x.size()[3]/4):int(x.size()[3]/4*3)]
+        low_part = low_part[:,:,int(x.size(2)/4):int(x.size(2)/4*3),int(x.size(3)/4):int(x.size(3)/4*3)]
         
         fc = torch.fft.ifft2(torch.fft.ifftshift(low_part), norm='forward').real
         return fc
@@ -79,18 +83,20 @@ class ASAP_padding_large(nn.Module):
 
     def forward(self, x):
         
-        x = F.pad(x, (int(x.size(2)/2-1), int(x.size(2)/2), int(x.size(3)/2-1), int(x.size(3)/2)), "constant", 0)
+        x = F.pad(x, (int(x.size(3)/2-1), int(x.size(3)/2), int(x.size(2)/2-1), int(x.size(2)/2)), "constant", 0)
         if not torch.is_tensor(self.window2d):
             window1d = np.abs(np.hamming(x.size(2)))
-            window2d = np.sqrt(np.outer(window1d,window1d))
+            window2nd = np.abs(np.hamming(x.size(3)))
+            window2d = np.sqrt(np.outer(window1d,window2nd))
             self.window2d = torch.Tensor(window2d).cuda()
             del window1d
             del window2d
+            del window2nd
             
         low_part = torch.fft.fftshift(torch.fft.fft2(x, norm='forward'))
         low_part = low_part*self.window2d.unsqueeze(0).unsqueeze(0)
-        low_part = low_part[:,:,int(x.size()[2]/4):int(x.size()[2]/4*3),int(x.size()[3]/4):int(x.size()[3]/4*3)]
+        low_part = low_part[:,:,int(x.size(2)/4):int(x.size(2)/4*3),int(x.size(3)/4):int(x.size(3)/4*3)]
         
         fc = torch.fft.ifft2(torch.fft.ifftshift(low_part), norm='forward').real
-        fc = fc[:,:,int( fc.size(2)/4):int(3*fc.size(2)/4),int(fc.size(3)/4): int(3*fc.size(3)/4)]
+        fc = fc[:,:,int(fc.size(2)/4):int(3*fc.size(2)/4),int(fc.size(3)/4): int(3*fc.size(3)/4)]
         return fc
