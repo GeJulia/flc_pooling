@@ -10,7 +10,7 @@ The code for adversarial training used in our paper can be found [here](https://
 
 Would you like to reference our **`FLC Pooling`** and **`ASAP`**? 
 
-Then consider citing our [paper](https://link.springer.com/chapter/10.1007/978-3-031-19781-9_3) and [paper](https://arxiv.org/abs/2307.09804):
+Then consider citing our [paper](https://link.springer.com/chapter/10.1007/978-3-031-19781-9_3) and [paper](https://link.springer.com/article/10.1007/s11263-026-03005-9):
 
 
 ```bibtex
@@ -22,10 +22,10 @@ Then consider citing our [paper](https://link.springer.com/chapter/10.1007/978-3
   url       = {https://arxiv.org/abs/2204.00491}
 }
 
-@article{grabinski2023fix,
+@article{grabinski2026asap,
   title    = {Fix your downsampling ASAP! Be natively more robust via Aliasing and Spectral Artifact free Pooling},
-  author   = {Grabinski, Julia and Keuper, Janis and Keuper, Margret},
-  journal  = {arXiv preprint arXiv:2307.09804},
-  year     = {2023}
+  author   = {Grabinski, Julia and Jung, Steffen and Keuper, Janis and Keuper, Margret},
+  journal  = {International Journal of Computer Vision},
+  year     = {2026}
 }
 ```
