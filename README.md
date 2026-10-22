@@ -10,7 +10,7 @@ The code for adversarial training used in our paper can be found [here](https://
 
 Would you like to reference our **`FLC Pooling`** and **`ASAP`**? 
 
-Then consider citing our [paper](https://link.springer.com/chapter/10.1007/978-3-031-19781-9_3) and [paper](https://link.springer.com/article/10.1007/s11263-026-03005-9):
+Then consider citing our [FLC](https://link.springer.com/chapter/10.1007/978-3-031-19781-9_3) and [ASAP](https://link.springer.com/article/10.1007/s11263-026-03005-9):
 
 
 ```bibtex
